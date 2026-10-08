@@ -1,27 +1,28 @@
-# Take a peek. — Final Static Website
+# Take a peek. — Glass Edition
 
-Versi gabungan:
+Static website siap GitHub Pages / Cloudflare Workers Static Assets.
 
-- identitas **hitam-putih / grayscale**
-- logo baru Take a peek.
-- landing page
-- mockup dashboard
-- walkthrough otomatis seperti preview video:
-  1. aktifkan extension
-  2. intip data produk
-  3. buka dashboard
-  4. gunakan filter
-  5. lihat komisi & kreator
-  6. ekspor data
-- tombol play / pause / restart
-- pilihan step manual
-- mode fullscreen demo
-- siap GitHub Pages
+## Identitas visual
+
+Palet berdasarkan referensi:
+- Orange: `#FF6D29`
+- Brown: `#453027`
+- Ink: `#161316`
+- Gray: `#BABABA`
+- White: `#FFFFFF`
+
+Gaya:
+- glassmorphism / frosted glass
+- warm orange ambient glow
+- translucent navigation
+- glass cards dan dashboard
+- responsive desktop + mobile
+- walkthrough demo otomatis tetap dipertahankan
 
 ## Struktur
 
 ```text
-take-a-peek-final/
+.
 ├── index.html
 ├── .nojekyll
 ├── README.md
@@ -38,18 +39,15 @@ take-a-peek-final/
 python -m http.server 8000
 ```
 
-Buka:
+Kemudian buka:
 
-- website: `http://localhost:8000`
-- demo fullscreen: `http://localhost:8000/?demo=1`
+- Website: `http://localhost:8000`
+- Demo fullscreen: `http://localhost:8000/?demo=1`
 
-## GitHub Pages
+## Deploy melalui GitHub
 
-1. Buat repository GitHub.
-2. Upload seluruh isi folder ke branch `main`.
-3. Buka **Settings → Pages**.
-4. Pilih **Deploy from a branch**.
-5. Pilih branch `main` dan folder `/ (root)`.
-6. Save.
+Upload seluruh isi folder ini ke repository GitHub Anda.
 
-Tidak membutuhkan npm, framework, atau build process.
+Jika Cloudflare project sudah terhubung ke repository tersebut, commit ke branch production akan memicu deployment baru.
+
+Tidak membutuhkan framework, npm, atau build step.
