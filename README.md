@@ -1,53 +1,9 @@
-# Take a peek. — Glass Edition
+# Take a peek. — Glass Edition + Kalkulator Marketplace
 
-Static website siap GitHub Pages / Cloudflare Workers Static Assets.
+Halaman:
+- `index.html` — landing + walkthrough
+- `calculator.html` — kalkulator marketplace
 
-## Identitas visual
+Kalkulator menyediakan preset Shopee, TikTok Shop, dan Tokopedia. Nilai preset bisa diedit karena tarif marketplace dapat berubah.
 
-Palet berdasarkan referensi:
-- Orange: `#FF6D29`
-- Brown: `#453027`
-- Ink: `#161316`
-- Gray: `#BABABA`
-- White: `#FFFFFF`
-
-Gaya:
-- glassmorphism / frosted glass
-- warm orange ambient glow
-- translucent navigation
-- glass cards dan dashboard
-- responsive desktop + mobile
-- walkthrough demo otomatis tetap dipertahankan
-
-## Struktur
-
-```text
-.
-├── index.html
-├── .nojekyll
-├── README.md
-└── assets/
-    ├── style.css
-    ├── app.js
-    ├── logo.png
-    └── favicon.png
-```
-
-## Jalankan lokal
-
-```bash
-python -m http.server 8000
-```
-
-Kemudian buka:
-
-- Website: `http://localhost:8000`
-- Demo fullscreen: `http://localhost:8000/?demo=1`
-
-## Deploy melalui GitHub
-
-Upload seluruh isi folder ini ke repository GitHub Anda.
-
-Jika Cloudflare project sudah terhubung ke repository tersebut, commit ke branch production akan memicu deployment baru.
-
-Tidak membutuhkan framework, npm, atau build step.
+Deploy: upload seluruh isi folder ke root repository GitHub yang sudah terhubung ke Cloudflare.

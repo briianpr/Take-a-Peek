@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#161316">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Kalkulator harga jual marketplace Take a peek.">
+  <title>Kalkulator Marketplace — Take a peek.</title>
+  <link rel="icon" href="./assets/favicon.png">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/calculator.css">
+</head>
+<body class="calculator-page">
+  <div class="noise"></div>
+
+  <header class="header calc-header">
+    <div class="wrap nav">
+      <a class="brand" href="./index.html">
+        <img src="./assets/logo.png" alt="Logo Take a peek.">
+        <span>Take a peek.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html">Beranda</a>
+        <a href="./index.html#demo">Demo</a>
+        <a href="./index.html#fitur">Fitur</a>
+        <a class="nav-active" href="./calculator.html">Kalkulator</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-dark" href="./index.html">← Kembali</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="calc-main wrap">
+    <section class="calc-hero">
+      <div>
+        <div class="eyebrow"><span></span> Kalkulator marketplace</div>
+        <h1>Hitung harga jual<br><em>tanpa menebak.</em></h1>
+        <p>Masukkan modal, biaya, komisi, dan target margin. Take a peek. menghitung estimasi harga jual minimum agar target laba tetap tercapai.</p>
+      </div>
+      <div class="glass-card calc-mini-info">
+        <span class="overline">RUMUS RINGKAS</span>
+        <strong>Harga jual minimum</strong>
+        <p>Memperhitungkan HPP, packing, biaya marketplace, pajak, voucher penjual, dan target margin.</p>
+        <small>Gunakan tarif aktual dari Seller Center sebelum menetapkan harga final.</small>
+      </div>
+    </section>
+
+    <section class="calculator-shell">
+      <div class="glass-card calculator-card">
+        <div class="calculator-card-head">
+          <div>
+            <span class="overline">INPUT PERHITUNGAN</span>
+            <h2>Simulasi satu produk</h2>
+          </div>
+          <button id="resetCalc" class="reset-btn" type="button">↻ Reset</button>
+        </div>
+
+        <div class="marketplace-block">
+          <label>Pilih marketplace</label>
+          <div class="market-tabs">
+            <button class="market-tab active" data-market="shopee" type="button">Shopee</button>
+            <button class="market-tab" data-market="tiktok" type="button">TikTok Shop</button>
+            <button class="market-tab" data-market="tokopedia" type="button">Tokopedia</button>
+          </div>
+          <p class="preset-note" id="presetNote">Preset biaya tetap Shopee Rp1.250 aktif. Tarif persentase tetap dapat diedit.</p>
+        </div>
+
+        <div class="calc-grid">
+          <div class="field"><label for="cost">Modal barang (Rp)</label><div class="input-wrap"><span>Rp</span><input id="cost" type="number" min="0" step="500" value="50000"></div></div>
+          <div class="field"><label for="packing">Packing (Rp)</label><div class="input-wrap"><span>Rp</span><input id="packing" type="number" min="0" step="500" value="2000"></div></div>
+          <div class="field"><label for="platformFee">Komisi platform (%)</label><div class="input-wrap"><input id="platformFee" type="number" min="0" max="100" step="0.1" value="9"><span>%</span></div></div>
+          <div class="field"><label for="dynamicFee">Komisi dinamis (%)</label><div class="input-wrap"><input id="dynamicFee" type="number" min="0" max="100" step="0.1" value="0"><span>%</span></div></div>
+          <div class="field"><label for="logistics">Biaya logistik (Rp)</label><div class="input-wrap"><span>Rp</span><input id="logistics" type="number" min="0" step="500" value="0"></div></div>
+          <div class="field"><label for="promoFee">Program ongkir/promo (%)</label><div class="input-wrap"><input id="promoFee" type="number" min="0" max="100" step="0.1" value="0"><span>%</span></div></div>
+          <div class="field"><label for="affiliateFee">Komisi affiliate (%)</label><div class="input-wrap"><input id="affiliateFee" type="number" min="0" max="100" step="0.1" value="0"><span>%</span></div></div>
+          <div class="field"><label for="adsFee">Biaya iklan (%)</label><div class="input-wrap"><input id="adsFee" type="number" min="0" max="100" step="0.1" value="0"><span>%</span></div></div>
+          <div class="field"><label for="targetMargin">Target margin bersih (%)</label><div class="input-wrap"><input id="targetMargin" type="number" min="0" max="95" step="0.5" value="20"><span>%</span></div></div>
+          <div class="field"><label for="sellerVoucher">Voucher seller tetap (Rp)</label><div class="input-wrap"><span>Rp</span><input id="sellerVoucher" type="number" min="0" step="500" value="0"></div></div>
+        </div>
+
+        <label class="tax-row">
+          <input id="pph22" type="checkbox" checked>
+          <span class="check-ui"></span>
+          <span>Masukkan pemungutan PPh 22 sebesar 0,5%</span>
+        </label>
+
+        <div class="result-section">
+          <div class="result-hero">
+            <div>
+              <span class="result-label">HARGA JUAL MINIMAL YANG DIPASANG</span>
+              <strong id="minPrice">Rp75.600</strong>
+              <p>Sudah memperhitungkan voucher penjual, biaya tetap, dan target margin.</p>
+            </div>
+            <div class="result-badge" id="marketBadge">SHOPEE</div>
+          </div>
+
+          <div class="summary-grid">
+            <div><span>Total tarif potongan</span><strong id="totalRate">9,5%</strong></div>
+            <div><span>Laba estimasi</span><strong id="profitEstimate">Rp15.168</strong></div>
+            <div><span>Margin aktual</span><strong id="actualMargin">20,1%</strong></div>
+          </div>
+
+          <div class="breakdown">
+            <div><span>Harga transaksi setelah voucher</span><strong id="transactionPrice">Rp75.600</strong></div>
+            <div><span>Potongan marketplace dan pajak</span><strong id="marketDeductions">−Rp8.432</strong></div>
+            <div><span>Estimasi dana masuk</span><strong id="netReceived">Rp67.168</strong></div>
+            <div><span>HPP + packing + logistik</span><strong id="totalCost">−Rp52.000</strong></div>
+            <div class="profit-row"><span>Laba</span><strong id="profit">Rp15.168</strong></div>
+          </div>
+
+          <div class="copy-row">
+            <button id="copyResult" class="copy-btn" type="button">▢ Salin hasil perhitungan</button>
+            <span id="copyStatus" aria-live="polite"></span>
+          </div>
+
+          <p class="fine-print" id="fixedFeeNote">Kalkulator estimasi satu produk per pesanan. Biaya tetap Rp1.250 otomatis dimasukkan untuk preset Shopee. Belum memodelkan plafon komisi, PPN keluaran untuk PKP, biaya retur, penalti, atau syarat khusus promo. Gunakan tarif aktual di Seller Center sebelum menetapkan harga final.</p>
+        </div>
+      </div>
+
+      <aside class="calc-sidebar">
+        <div class="glass-card sidebar-card">
+          <span class="overline">RINGKASAN</span>
+          <h3>Apa yang dihitung?</h3>
+          <ul>
+            <li><span>01</span><p>Modal barang, packing, dan logistik.</p></li>
+            <li><span>02</span><p>Komisi platform, affiliate, promo, iklan, dan pajak.</p></li>
+            <li><span>03</span><p>Biaya tetap marketplace berdasarkan preset.</p></li>
+            <li><span>04</span><p>Harga minimum untuk mengejar target margin.</p></li>
+          </ul>
+        </div>
+
+        <div class="glass-card sidebar-card accent-card">
+          <span class="overline">CATATAN</span>
+          <h3>Tarif marketplace dapat berubah.</h3>
+          <p>Preset adalah titik awal. Sesuaikan angka dengan kategori, program, dan akun Seller Center milikmu.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="wrap footer calc-footer">
+    <div class="brand footer-brand"><img src="./assets/logo.png" alt=""><span>Take a peek.</span></div>
+    <span>Kalkulator marketplace • Estimasi, bukan laporan keuangan.</span>
+  </footer>
+
+  <script src="./assets/calculator.js"></script>
+</body>
+</html>
