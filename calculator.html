@@ -5,85 +5,90 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#161316">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Take a peek. Fee Intelligence — kalkulator biaya, laba, BEP, dan harga target seller Shopee Indonesia.">
-  <title>Fee Intelligence — Take a peek.</title>
+  <meta name="description" content="Take a peek. Fee Intelligence — kalkulator biaya, laba, BEP, dan harga target Shopee Indonesia.">
+  <title>Kalkulator Marketplace — Take a peek.</title>
   <link rel="icon" href="./assets/favicon.png">
-  <link rel="stylesheet" href="./assets/style.css">
   <link rel="stylesheet" href="./assets/calculator.css">
 </head>
-<body class="calculator-page">
-  <div class="noise"></div>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
 
-  <header class="header calc-header">
-    <div class="wrap nav">
-      <a class="brand" href="./index.html">
-        <img src="./assets/logo.png" alt="Logo Take a peek.">
+  <header class="site-header">
+    <div class="nav-shell container">
+      <a class="brand" href="./index.html" aria-label="Take a peek. beranda">
+        <img src="./assets/logo.png" alt="">
         <span>Take a peek.</span>
       </a>
-      <nav class="nav-links">
+
+      <nav class="nav-links" aria-label="Navigasi utama">
         <a href="./index.html">Beranda</a>
         <a href="./index.html#demo">Demo</a>
         <a href="./index.html#fitur">Fitur</a>
-        <a class="nav-active" href="./calculator.html">Kalkulator</a>
+        <a class="active" href="./calculator.html">Kalkulator</a>
       </nav>
+
       <div class="nav-actions">
-        <button class="btn btn-dark print-btn" id="printBtn" type="button">Cetak</button>
-        <a class="btn btn-dark" href="./index.html">← Kembali</a>
+        <button class="btn ghost small" type="button" id="printBtn">Cetak</button>
+        <a class="btn ghost small" href="./index.html">← Kembali</a>
       </div>
     </div>
   </header>
 
-  <main class="calc-main wrap">
-    <section class="calc-hero">
-      <div>
+  <main class="container page">
+    <section class="hero">
+      <div class="hero-copy">
         <div class="eyebrow"><span></span> Shopee fee intelligence • Indonesia</div>
-        <h1>Hitung laba sampai<br><em>harga aman.</em></h1>
-        <p>
-          Simulasikan biaya wajib, program opsional, pajak marketplace, margin, BEP,
-          dan unit economics. Preset dapat diubah supaya selalu mengikuti rincian Seller Center milikmu.
-        </p>
-        <div class="research-badges">
-          <span>Referensi dicek 14 Okt 2026</span>
-          <span>Biaya proses Rp1.250/pesanan</span>
-          <span>Mode estimasi — bukan afiliasi Shopee</span>
+        <h1>Tahu untungnya<br><em>sebelum jual.</em></h1>
+        <p>Hitung biaya marketplace, margin, harga BEP, dan harga target dalam satu alur yang lebih mudah dibaca.</p>
+      </div>
+
+      <div class="hero-meta glass">
+        <div class="meta-icon">↗</div>
+        <div>
+          <span>Preset Shopee 2026</span>
+          <strong>Editable & cap-aware</strong>
+          <small>Tarif kategori dan program tetap bisa kamu sesuaikan dari Seller Center.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolbar glass">
+      <div class="toolbar-group">
+        <span class="toolbar-label">Tujuan hitung</span>
+        <div class="segmented">
+          <button type="button" class="segment active" data-calc-mode="profit">Hitung laba</button>
+          <button type="button" class="segment" data-calc-mode="target">Cari harga target</button>
         </div>
       </div>
 
-      <div class="glass-card calc-mini-info">
-        <span class="overline">MODEL PERHITUNGAN</span>
-        <strong>Harga → potongan → dana masuk → laba</strong>
-        <p>Persentase dihitung dari harga setelah diskon/voucher seller. Biaya tetap dihitung per pesanan.</p>
-        <small>Tarif per subkategori dan program dapat berubah. Angka final tetap lihat Rincian Penghasilan Seller Center.</small>
+      <div class="toolbar-group">
+        <span class="toolbar-label">Tampilan</span>
+        <div class="segmented compact">
+          <button type="button" class="segment active" data-ui-mode="simple">Ringkas</button>
+          <button type="button" class="segment" data-ui-mode="complete">Lengkap</button>
+        </div>
       </div>
+
+      <div class="toolbar-note" id="modeDescription">Masukkan harga jual untuk melihat laba bersih.</div>
     </section>
 
-    <section class="mode-strip glass-card">
-      <div>
-        <span class="overline">MODE KALKULATOR</span>
-        <strong id="modeDescription">Hitung laba dari harga jual</strong>
-      </div>
-      <div class="segmented">
-        <button class="segment active" data-calc-mode="profit" type="button">Hitung Laba</button>
-        <button class="segment" data-calc-mode="target" type="button">Cari Harga Target</button>
-      </div>
-      <div class="segmented compact">
-        <button class="segment active" data-ui-mode="simple" type="button">Ringkas</button>
-        <button class="segment" data-ui-mode="complete" type="button">Lengkap</button>
-      </div>
-    </section>
+    <section class="workspace">
+      <div class="form-column">
 
-    <section class="calculator-layout">
-      <div class="calculator-left">
-
-        <section class="glass-card calc-section">
-          <div class="section-title">
-            <div><span class="section-dot orange"></span><div><span class="overline">01 • PRODUK & TOKO</span><h2>Parameter dasar</h2></div></div>
-            <span class="source-chip">Tarif 2026</span>
+        <section class="panel glass">
+          <div class="panel-heading">
+            <div>
+              <span class="section-kicker">01 • Produk & toko</span>
+              <h2>Mulai dari parameter utama</h2>
+              <p>Data yang paling menentukan hasil ada di sini.</p>
+            </div>
+            <span class="status-chip">Shopee</span>
           </div>
 
-          <div class="calc-grid">
+          <div class="field-grid">
             <div class="field span-2">
-              <label for="category">Kategori produk <span class="muted-inline">preset representatif — bisa override</span></label>
+              <label for="category">Kategori produk</label>
               <select id="category">
                 <option value="fashion">Fashion & Aksesori</option>
                 <option value="beauty">Kecantikan & Perawatan</option>
@@ -93,42 +98,39 @@
                 <option value="highend">HP / Elektronik High-end</option>
                 <option value="supplement">Suplemen & Susu Formula</option>
                 <option value="jewelry">Logam Mulia & Perhiasan</option>
-                <option value="streaming">Digital — Streaming</option>
-                <option value="gaming">Digital — Gaming</option>
-                <option value="telco">Digital — Pulsa & Data</option>
-                <option value="emoney">Digital — E-Money</option>
-                <option value="manual">Manual / kategori lain</option>
+                <option value="manual">Kategori lain / manual</option>
               </select>
+              <small>Preset hanya titik awal. Kamu tetap bisa mengubah tarif biaya admin.</small>
             </div>
 
             <div class="field">
               <label for="hpp">Modal / HPP per unit</label>
-              <div class="input-wrap"><span>Rp</span><input id="hpp" type="number" min="0" step="500" value="50000"></div>
+              <div class="input-shell"><span>Rp</span><input id="hpp" type="number" min="0" step="500" value="50000"></div>
             </div>
 
             <div class="field profit-only">
               <label for="salePrice">Harga jual per unit</label>
-              <div class="input-wrap"><span>Rp</span><input id="salePrice" type="number" min="0" step="500" value="88000"></div>
+              <div class="input-shell"><span>Rp</span><input id="salePrice" type="number" min="0" step="500" value="88000"></div>
             </div>
 
             <div class="field target-only hidden">
               <label for="targetMargin">Target margin bersih</label>
-              <div class="input-wrap"><input id="targetMargin" type="number" min="0" max="90" step="0.5" value="20"><span>%</span></div>
+              <div class="input-shell"><input id="targetMargin" type="number" min="0" max="90" step="0.5" value="20"><span>%</span></div>
             </div>
 
             <div class="field">
               <label for="qty">Jumlah unit per pesanan</label>
-              <div class="input-wrap"><input id="qty" type="number" min="1" max="100" step="1" value="1"><span>unit</span></div>
+              <div class="input-shell"><input id="qty" type="number" min="1" max="100" step="1" value="1"><span>unit</span></div>
             </div>
 
             <div class="field">
-              <label for="sellerVoucher">Diskon / voucher seller per pesanan</label>
-              <div class="input-wrap"><span>Rp</span><input id="sellerVoucher" type="number" min="0" step="500" value="0"></div>
+              <label for="sellerVoucher">Voucher / diskon seller</label>
+              <div class="input-shell"><span>Rp</span><input id="sellerVoucher" type="number" min="0" step="500" value="0"></div>
             </div>
           </div>
 
-          <div class="seller-type">
-            <div class="field-label">Tipe penjual Shopee</div>
+          <div class="seller-block">
+            <label class="block-label">Tipe penjual</label>
             <div class="seller-options">
               <label><input type="radio" name="sellerType" value="nonstar"><span>Non-Star</span></label>
               <label><input type="radio" name="sellerType" value="star" checked><span>Star / Star+</span></label>
@@ -136,138 +138,149 @@
             </div>
           </div>
 
-          <label class="switch-row nonstar-exemption hidden" id="exemptionRow">
+          <label class="switch-card hidden" id="exemptionRow">
             <input id="newSellerExempt" type="checkbox">
             <span class="switch-ui"></span>
-            <span><b>Masih memenuhi masa bebas biaya Non-Star lama</b><small>Upload produk pertama sebelum 1 Agu 2026 dan masih memenuhi syarat ≤50 pesanan / ≤180 hari. Verifikasi status toko.</small></span>
+            <span><b>Gunakan pembebasan biaya Non-Star lama</b><small>Aktifkan hanya jika toko masih memenuhi syarat pembebasan yang berlaku.</small></span>
           </label>
         </section>
 
-        <section class="glass-card calc-section">
-          <div class="section-title">
-            <div><span class="section-dot purple"></span><div><span class="overline">02 • BIAYA WAJIB</span><h2>Platform Shopee</h2></div></div>
-            <span class="source-chip">Auto + editable</span>
+        <section class="panel glass">
+          <div class="panel-heading compact-heading">
+            <div>
+              <span class="section-kicker">02 • Biaya wajib</span>
+              <h2>Biaya inti Shopee</h2>
+              <p>Tarif otomatis mengikuti tipe toko dan kategori, tetapi tetap bisa diedit.</p>
+            </div>
+            <span class="total-chip" id="mandatoryChip">Rp8.510</span>
           </div>
 
-          <div class="fee-table">
-            <div class="fee-head"><span>Komponen</span><span>Tarif</span><span>Estimasi</span></div>
-
-            <div class="fee-row">
-              <div><b>Biaya administrasi</b><small>Menurut tipe toko + kategori</small></div>
-              <div class="inline-input"><input id="adminRate" type="number" min="0" max="30" step="0.01" value="10"><span>%</span></div>
-              <strong id="adminCost">−Rp8.800</strong>
+          <div class="fee-list">
+            <div class="fee-item">
+              <div class="fee-icon">%</div>
+              <div class="fee-copy"><b>Biaya administrasi</b><small>Preset kategori + tipe toko</small></div>
+              <div class="mini-input"><input id="adminRate" type="number" min="0" max="30" step="0.01" value="8.25"><span>%</span></div>
+              <strong id="adminCost">−Rp7.260</strong>
             </div>
 
-            <div class="fee-row mall-payment hidden" id="mallPaymentRow">
-              <div><b>Biaya pembayaran Mall</b><small>1,8%, maksimum Rp50.000 per kuantitas</small></div>
-              <div class="inline-static">1,8%</div>
+            <div class="fee-item mall-only hidden" id="mallPaymentRow">
+              <div class="fee-icon">M</div>
+              <div class="fee-copy"><b>Biaya pembayaran Mall</b><small>1,8% • maksimum Rp50.000 per unit</small></div>
+              <span class="static-rate">1,8%</span>
               <strong id="mallPaymentCost">Rp0</strong>
             </div>
 
-            <div class="fee-row">
-              <div><b>Biaya proses pesanan</b><small>Per transaksi selesai; satu pesanan bisa berisi beberapa unit</small></div>
-              <div class="inline-input money"><span>Rp</span><input id="processFee" type="number" min="0" step="250" value="1250"></div>
+            <div class="fee-item">
+              <div class="fee-icon">#</div>
+              <div class="fee-copy"><b>Biaya proses pesanan</b><small>Biaya tetap per transaksi selesai</small></div>
+              <div class="mini-input money"><span>Rp</span><input id="processFee" type="number" min="0" step="250" value="1250"></div>
               <strong id="processCost">−Rp1.250</strong>
             </div>
 
-            <div class="fee-row">
-              <div><b>PPh 22 marketplace</b><small>Aktifkan hanya jika akunmu memang dipungut 0,5%</small></div>
-              <label class="micro-switch"><input id="pph22" type="checkbox"><span></span><em>0,5%</em></label>
+            <div class="fee-item">
+              <div class="fee-icon">P</div>
+              <div class="fee-copy"><b>PPh 22 marketplace</b><small>Aktifkan jika akunmu memang dipungut</small></div>
+              <label class="toggle"><input id="pph22" type="checkbox"><span></span><em>0,5%</em></label>
               <strong id="pphCost">Rp0</strong>
             </div>
           </div>
         </section>
 
-        <section class="glass-card calc-section">
-          <div class="section-title">
-            <div><span class="section-dot blue"></span><div><span class="overline">03 • PROGRAM OPSIONAL</span><h2>Program yang diikuti</h2></div></div>
-            <span class="source-chip">Cap-aware</span>
+        <section class="panel glass">
+          <div class="panel-heading compact-heading">
+            <div>
+              <span class="section-kicker">03 • Program opsional</span>
+              <h2>Aktifkan hanya yang kamu ikuti</h2>
+              <p>Program opsional dipisah agar perhitungan lebih mudah dipahami.</p>
+            </div>
+            <button class="text-btn" id="togglePrograms" type="button">Tutup</button>
           </div>
 
-          <div class="program-grid">
-            <article class="program-card">
-              <div class="program-top">
-                <div><b>Gratis Ongkir XTRA</b><small>Rate kategori + batas per kuantitas</small></div>
-                <label class="micro-switch"><input id="freeShipOn" type="checkbox" checked><span></span></label>
+          <div class="program-list" id="programList">
+            <article class="program-row">
+              <div class="program-main">
+                <label class="toggle big"><input id="freeShipOn" type="checkbox" checked><span></span></label>
+                <div><b>Gratis Ongkir XTRA</b><small id="freeShipCapLabel">Cap Rp40.000/unit</small></div>
               </div>
               <div class="program-controls">
                 <select id="productSize"><option value="normal">Ukuran biasa</option><option value="special">Ukuran khusus</option></select>
-                <div class="inline-input"><input id="freeShipRate" type="number" min="0" max="30" step="0.1" value="7.5"><span>%</span></div>
+                <div class="mini-input"><input id="freeShipRate" type="number" min="0" max="30" step="0.1" value="6.5"><span>%</span></div>
               </div>
-              <div class="program-foot"><span id="freeShipCapLabel">Cap Rp40.000/unit</span><strong id="freeShipCost">−Rp6.600</strong></div>
+              <strong id="freeShipCost">−Rp5.720</strong>
             </article>
 
-            <article class="program-card">
-              <div class="program-top">
-                <div><b>Promo XTRA</b><small>Referensi 4,5%, maks Rp60.000/kuantitas</small></div>
-                <label class="micro-switch"><input id="promoOn" type="checkbox" checked><span></span></label>
+            <article class="program-row">
+              <div class="program-main">
+                <label class="toggle big"><input id="promoOn" type="checkbox" checked><span></span></label>
+                <div><b>Promo XTRA</b><small>Cap Rp60.000/unit</small></div>
               </div>
               <div class="program-controls single">
-                <div class="inline-input"><input id="promoRate" type="number" min="0" max="30" step="0.1" value="4.5"><span>%</span></div>
+                <div class="mini-input"><input id="promoRate" type="number" min="0" max="30" step="0.1" value="4.5"><span>%</span></div>
               </div>
-              <div class="program-foot"><span>Cap Rp60.000/unit</span><strong id="promoCost">−Rp3.960</strong></div>
+              <strong id="promoCost">−Rp3.960</strong>
             </article>
 
-            <article class="program-card">
-              <div class="program-top">
-                <div><b>Pre-Order</b><small>Biaya layanan untuk produk yang memenuhi kriteria</small></div>
-                <label class="micro-switch"><input id="preorderOn" type="checkbox"><span></span></label>
+            <article class="program-row advanced-section">
+              <div class="program-main">
+                <label class="toggle big"><input id="preorderOn" type="checkbox"><span></span></label>
+                <div><b>Pre-Order</b><small>Biaya layanan 3%</small></div>
               </div>
-              <div class="program-controls single"><div class="inline-static">3,0%</div></div>
-              <div class="program-foot"><span>Tanpa preset cap</span><strong id="preorderCost">Rp0</strong></div>
+              <span class="static-rate">3,0%</span>
+              <strong id="preorderCost">Rp0</strong>
             </article>
 
-            <article class="program-card advanced-section">
-              <div class="program-top">
-                <div><b>SPayLater XTRA 0%</b><small>Referensi tenor 2026 — verifikasi akun</small></div>
-                <label class="micro-switch"><input id="spayOn" type="checkbox"><span></span></label>
+            <article class="program-row advanced-section">
+              <div class="program-main">
+                <label class="toggle big"><input id="spayOn" type="checkbox"><span></span></label>
+                <div><b>SPayLater XTRA 0%</b><small>Referensi tenor • verifikasi akun</small></div>
               </div>
-              <div class="program-controls">
-                <select id="spayTenor"><option value="2.5">3 bulan • 2,5%</option><option value="4">6 bulan • 4,0%</option></select>
-              </div>
-              <div class="program-foot"><span>Pesanan eligible saja</span><strong id="spayCost">Rp0</strong></div>
+              <select id="spayTenor"><option value="2.5">3 bulan • 2,5%</option><option value="4">6 bulan • 4%</option></select>
+              <strong id="spayCost">Rp0</strong>
             </article>
           </div>
         </section>
 
-        <section class="glass-card calc-section advanced-section">
-          <div class="section-title">
-            <div><span class="section-dot yellow"></span><div><span class="overline">04 • PROMOSI & OPERASIONAL</span><h2>Biaya manual bisnis</h2></div></div>
-            <span class="source-chip">Manual</span>
+        <section class="panel glass advanced-section">
+          <div class="panel-heading compact-heading">
+            <div>
+              <span class="section-kicker">04 • Biaya bisnis lain</span>
+              <h2>Biaya di luar fee utama</h2>
+              <p>Masukkan hanya jika benar-benar relevan dengan operasionalmu.</p>
+            </div>
           </div>
 
-          <div class="calc-grid">
-            <div class="field"><label for="affiliateRate">Komisi affiliate</label><div class="input-wrap"><input id="affiliateRate" type="number" min="0" max="50" step="0.1" value="0"><span>%</span></div></div>
-            <div class="field"><label for="adsRate">Biaya iklan / omzet</label><div class="input-wrap"><input id="adsRate" type="number" min="0" max="90" step="0.1" value="0"><span>%</span></div></div>
-            <div class="field"><label for="liveRate">Live / Video XTRA manual</label><div class="input-wrap"><input id="liveRate" type="number" min="0" max="30" step="0.1" value="0"><span>%</span></div></div>
-            <div class="field"><label for="insuranceRate">Asuransi / biaya persen lain</label><div class="input-wrap"><input id="insuranceRate" type="number" min="0" max="30" step="0.1" value="0"><span>%</span></div></div>
-            <div class="field"><label for="packing">Packing per pesanan</label><div class="input-wrap"><span>Rp</span><input id="packing" type="number" min="0" step="500" value="0"></div></div>
-            <div class="field"><label for="logistics">Logistik ditanggung seller</label><div class="input-wrap"><span>Rp</span><input id="logistics" type="number" min="0" step="500" value="0"></div></div>
-            <div class="field span-2"><label for="otherFixed">Biaya tetap lain per pesanan</label><div class="input-wrap"><span>Rp</span><input id="otherFixed" type="number" min="0" step="500" value="0"></div></div>
+          <div class="field-grid">
+            <div class="field"><label for="affiliateRate">Komisi affiliate</label><div class="input-shell"><input id="affiliateRate" type="number" min="0" max="50" step="0.1" value="0"><span>%</span></div></div>
+            <div class="field"><label for="adsRate">Biaya iklan / omzet</label><div class="input-shell"><input id="adsRate" type="number" min="0" max="90" step="0.1" value="0"><span>%</span></div></div>
+            <div class="field"><label for="liveRate">Live / Video XTRA</label><div class="input-shell"><input id="liveRate" type="number" min="0" max="30" step="0.1" value="0"><span>%</span></div></div>
+            <div class="field"><label for="insuranceRate">Asuransi / persen lain</label><div class="input-shell"><input id="insuranceRate" type="number" min="0" max="30" step="0.1" value="0"><span>%</span></div></div>
+            <div class="field"><label for="packing">Packing per pesanan</label><div class="input-shell"><span>Rp</span><input id="packing" type="number" min="0" step="500" value="0"></div></div>
+            <div class="field"><label for="logistics">Logistik ditanggung seller</label><div class="input-shell"><span>Rp</span><input id="logistics" type="number" min="0" step="500" value="0"></div></div>
+            <div class="field span-2"><label for="otherFixed">Biaya tetap lain</label><div class="input-shell"><span>Rp</span><input id="otherFixed" type="number" min="0" step="500" value="0"></div></div>
           </div>
         </section>
 
-        <section class="glass-card calc-section economics-section">
-          <div class="section-title">
-            <div><span class="section-dot green"></span><div><span class="overline">05 • UNIT ECONOMICS</span><h2>Anatomi omzet</h2></div></div>
-            <span class="health-pill" id="healthPill">CUAN SEHAT</span>
+        <section class="panel glass unit-panel">
+          <div class="panel-heading compact-heading">
+            <div>
+              <span class="section-kicker">05 • Unit economics</span>
+              <h2>Ke mana omzetmu pergi?</h2>
+              <p>Visual ringkas untuk membaca sehat atau tidaknya struktur biaya.</p>
+            </div>
+            <span class="health-chip" id="healthPill">Cuan sehat</span>
           </div>
 
-          <div class="economics-body">
-            <div class="allocation">
-              <div class="allocation-bar" aria-label="Alokasi omzet">
-                <span class="alloc-hpp" id="barHpp"></span>
-                <span class="alloc-fee" id="barFee"></span>
-                <span class="alloc-profit" id="barProfit"></span>
-              </div>
-              <div class="legend">
-                <span><i class="dot hpp"></i>HPP <b id="hppShare">56,8%</b></span>
-                <span><i class="dot fee"></i>Biaya <b id="feeShare">20,7%</b></span>
-                <span><i class="dot profit"></i>Laba <b id="profitShare">22,5%</b></span>
+          <div class="unit-layout">
+            <div class="donut-wrap">
+              <div class="donut" id="donutChart"><div><span>Margin</span><strong id="donutMargin">22,5%</strong></div></div>
+              <div class="legend-list">
+                <span><i class="legend-dot hpp"></i>HPP <b id="hppShare">56,8%</b></span>
+                <span><i class="legend-dot fee"></i>Biaya <b id="feeShare">20,7%</b></span>
+                <span><i class="legend-dot profit"></i>Laba <b id="profitShare">22,5%</b></span>
               </div>
             </div>
 
-            <div class="economics-cards">
+            <div class="metric-grid">
               <div><span>Modal pokok</span><strong id="econHpp">Rp50.000</strong></div>
               <div><span>Total potongan</span><strong id="econFees">Rp18.190</strong></div>
               <div><span>Sisa laba bersih</span><strong id="econProfit">Rp19.810</strong></div>
@@ -276,134 +289,113 @@
           </div>
         </section>
 
-        <section class="glass-card calc-section advanced-section">
-          <div class="section-title">
-            <div><span class="section-dot cyan"></span><div><span class="overline">06 • SIMULASI</span><h2>Tiga skenario harga</h2></div></div>
-            <button id="saveScenario" class="ghost-action" type="button">+ Simpan skenario</button>
+        <section class="panel glass advanced-section">
+          <div class="panel-heading compact-heading">
+            <div>
+              <span class="section-kicker">06 • Simulasi</span>
+              <h2>Bandingkan tiga harga</h2>
+              <p>Lihat efek perubahan ±10% tanpa mengubah input utama.</p>
+            </div>
+            <button class="btn ghost small" id="saveScenario" type="button">+ Simpan</button>
           </div>
+
           <div class="scenario-grid" id="scenarioGrid"></div>
-          <div class="saved-scenarios" id="savedScenarios">
-            <div class="saved-head"><b>Skenario tersimpan</b><button id="clearScenarios" type="button">Hapus semua</button></div>
+          <div class="saved-block">
+            <div class="saved-head"><span>Skenario tersimpan</span><button id="clearScenarios" type="button">Hapus semua</button></div>
             <div id="savedScenarioList" class="saved-list"><span class="empty-state">Belum ada skenario tersimpan.</span></div>
           </div>
         </section>
       </div>
 
-      <aside class="calculator-right">
-        <section class="glass-card result-card">
-          <div class="result-top">
-            <div>
-              <span class="overline">ESTIMASI HASIL KAS</span>
-              <h2 id="resultTitle">Laba bersih</h2>
-            </div>
-            <span class="seller-badge" id="sellerBadge">STAR</span>
+      <aside class="summary-column">
+        <section class="summary-card glass">
+          <div class="summary-head">
+            <div><span class="section-kicker">Hasil estimasi</span><h2 id="resultTitle">Laba bersih</h2></div>
+            <span class="seller-chip" id="sellerBadge">STAR</span>
           </div>
 
-          <div class="big-result" id="bigResult">
-            <span id="healthLabel">CUAN SEHAT</span>
+          <div class="profit-hero" id="profitHero">
+            <span class="health-label" id="healthLabel">CUAN SEHAT</span>
             <strong id="profitMain">+Rp19.810</strong>
-            <div><b id="marginMain">22,51%</b> net margin</div>
+            <div><b id="marginMain">22,51%</b> margin bersih</div>
           </div>
 
-          <div class="cash-note">
-            <span>Dana masuk setelah potongan</span>
-            <strong id="netReceived">Rp69.810</strong>
+          <div class="key-metrics">
+            <div><span>Harga jual</span><strong id="grossRevenue">Rp88.000</strong></div>
+            <div><span>Dana masuk</span><strong id="netReceived">Rp69.810</strong></div>
+            <div><span>Laba / unit</span><strong id="profitPerUnit">Rp19.810</strong></div>
           </div>
 
-          <div class="assumptions">
-            <b>Asumsi otomatis</b>
-            <p id="assumptionText">Star • Fashion • Admin 10% • Gratis Ongkir 7,5% • Promo XTRA 4,5%</p>
+          <div class="assumption-card">
+            <span>Asumsi aktif</span>
+            <p id="assumptionText">Star • Fashion • Admin 8,25% • Gratis Ongkir 6,5% • Promo XTRA 4,5%</p>
           </div>
 
-          <div class="result-price">
-            <span>Harga jual produk</span>
-            <strong id="grossRevenue">Rp88.000</strong>
-          </div>
-
-          <details open>
-            <summary><span>Biaya wajib</span><strong id="mandatorySubtotal">−Rp10.050</strong></summary>
-            <div class="detail-lines">
-              <div><span>Biaya administrasi</span><b id="dAdmin">−Rp8.800</b></div>
-              <div id="dMallLine" class="hidden"><span>Biaya pembayaran Mall</span><b id="dMall">Rp0</b></div>
-              <div><span>Biaya proses pesanan</span><b id="dProcess">−Rp1.250</b></div>
-              <div><span>PPh 22 marketplace</span><b id="dPph">Rp0</b></div>
+          <div class="breakdown">
+            <button class="breakdown-row" type="button" data-breakdown="mandatory"><span>Biaya wajib</span><strong id="mandatorySubtotal">−Rp8.510</strong><em>⌄</em></button>
+            <div class="breakdown-detail" id="mandatoryDetail">
+              <div><span>Administrasi</span><b id="dAdmin">−Rp7.260</b></div>
+              <div class="mall-only hidden" id="dMallLine"><span>Pembayaran Mall</span><b id="dMall">Rp0</b></div>
+              <div><span>Proses pesanan</span><b id="dProcess">−Rp1.250</b></div>
+              <div><span>PPh 22</span><b id="dPph">Rp0</b></div>
             </div>
-          </details>
 
-          <details open>
-            <summary><span>Program opsional</span><strong id="optionalSubtotal">−Rp10.560</strong></summary>
-            <div class="detail-lines">
-              <div><span>Gratis Ongkir XTRA</span><b id="dFree">−Rp6.600</b></div>
+            <button class="breakdown-row" type="button" data-breakdown="optional"><span>Program opsional</span><strong id="optionalSubtotal">−Rp9.680</strong><em>⌄</em></button>
+            <div class="breakdown-detail" id="optionalDetail">
+              <div><span>Gratis Ongkir XTRA</span><b id="dFree">−Rp5.720</b></div>
               <div><span>Promo XTRA</span><b id="dPromo">−Rp3.960</b></div>
-              <div><span>Pre-Order</span><b id="dPre">Rp0</b></div>
-              <div><span>SPayLater XTRA</span><b id="dSpay">Rp0</b></div>
+              <div class="advanced-section"><span>Pre-Order</span><b id="dPre">Rp0</b></div>
+              <div class="advanced-section"><span>SPayLater XTRA</span><b id="dSpay">Rp0</b></div>
             </div>
-          </details>
 
-          <details class="advanced-section" open>
-            <summary><span>Biaya bisnis lain</span><strong id="otherSubtotal">Rp0</strong></summary>
-            <div class="detail-lines">
+            <button class="breakdown-row advanced-section" type="button" data-breakdown="other"><span>Biaya bisnis lain</span><strong id="otherSubtotal">Rp0</strong><em>⌄</em></button>
+            <div class="breakdown-detail advanced-section" id="otherDetail">
               <div><span>Affiliate</span><b id="dAffiliate">Rp0</b></div>
               <div><span>Iklan</span><b id="dAds">Rp0</b></div>
-              <div><span>Live/Video XTRA</span><b id="dLive">Rp0</b></div>
+              <div><span>Live/Video</span><b id="dLive">Rp0</b></div>
               <div><span>Asuransi/persen lain</span><b id="dInsurance">Rp0</b></div>
               <div><span>Packing + logistik + fixed</span><b id="dFixed">Rp0</b></div>
             </div>
-          </details>
-
-          <div class="result-metrics">
-            <div><span>Laba bersih</span><strong id="profitMetric">Rp19.810</strong></div>
-            <div><span>Net profit margin</span><strong id="marginMetric">22,51%</strong></div>
           </div>
 
-          <div class="bep-box">
-            <div>
-              <span>Harga BEP / unit</span>
-              <strong id="bepPrice">Rp63.500</strong>
-            </div>
-            <div>
-              <span>Harga target / unit</span>
-              <strong id="targetPrice">Rp80.500</strong>
-            </div>
+          <div class="price-guidance">
+            <div><span>Harga BEP / unit</span><strong id="bepPrice">Rp63.500</strong></div>
+            <div><span>Harga target / unit</span><strong id="targetPrice">Rp84.500</strong></div>
           </div>
 
-          <div class="target-actions target-only hidden">
-            <button id="useTargetPrice" class="btn btn-light full" type="button">Pakai harga target</button>
-          </div>
+          <button class="btn primary full target-only hidden" id="useTargetPrice" type="button">Pakai harga target</button>
 
-          <div class="copy-actions">
-            <button id="copySummary" type="button">Salin ringkasan</button>
-            <button id="copyAiPrompt" type="button">Salin prompt AI</button>
-            <span id="copyStatus" aria-live="polite"></span>
+          <div class="summary-actions">
+            <button class="btn ghost" id="copySummary" type="button">Salin ringkasan</button>
+            <button class="btn ghost advanced-section" id="copyAiPrompt" type="button">Prompt AI</button>
           </div>
+          <div class="copy-status" id="copyStatus" aria-live="polite"></div>
         </section>
 
-        <section class="glass-card side-card safety-card">
-          <span class="overline">DATA AMAN & TARGET ROAS</span>
-          <div class="mini-metrics">
+        <section class="side-card glass">
+          <div class="side-card-head"><span class="section-kicker">Health check</span><span class="mini-dot"></span></div>
+          <div class="side-metrics">
             <div><span>ROAS impas</span><strong id="sideRoas">4,44×</strong></div>
             <div><span>Potongan efektif</span><strong id="effectiveCut">20,67%</strong></div>
-            <div><span>Laba / unit</span><strong id="profitPerUnit">Rp19.810</strong></div>
           </div>
-          <p>ROAS impas memakai kontribusi sebelum biaya iklan. Semakin rendah angkanya, semakin besar ruang iklan.</p>
+          <p>ROAS impas memakai kontribusi sebelum biaya iklan. Semakin rendah, semakin besar ruang iklan.</p>
         </section>
 
-        <section class="glass-card side-card advanced-section">
-          <span class="overline">SUMBER & ASUMSI</span>
-          <h3>Riset tarif yang dipakai</h3>
-          <div class="source-list">
-            <a href="https://help.shopee.co.id/portal/4/article/71187" target="_blank" rel="noopener"><b>Syarat Layanan Shopee</b><small>Admin Non-Star, proses Rp1.250, pre-order 3%</small></a>
-            <a href="https://help.shopee.co.id/portal/4/article/71190-Persyaratan-Layanan-Shopee-Mall" target="_blank" rel="noopener"><b>Syarat Shopee Mall</b><small>Biaya pembayaran 1,8%, cap Rp50.000/qty</small></a>
-            <a href="https://help.shopee.co.id/portal/4/article/71196-Syarat-dan-Ketentuan-Program-Gratis-Ongkir-XTRA" target="_blank" rel="noopener"><b>Gratis Ongkir XTRA</b><small>Formula + cap Rp40.000 / Rp60.000 per kuantitas</small></a>
-            <a href="https://www.pajak.go.id/marketplace" target="_blank" rel="noopener"><b>DJP — PPh marketplace</b><small>PPh 22 0,5% bila seller termasuk subjek pemungutan</small></a>
+        <details class="source-card glass advanced-section">
+          <summary>Sumber & asumsi tarif <span>+</span></summary>
+          <div class="source-content">
+            <a href="https://help.shopee.co.id/portal/4/article/71187" target="_blank" rel="noopener">Syarat layanan Shopee</a>
+            <a href="https://help.shopee.co.id/portal/4/article/71190-Persyaratan-Layanan-Shopee-Mall" target="_blank" rel="noopener">Syarat Shopee Mall</a>
+            <a href="https://help.shopee.co.id/portal/4/article/71196-Syarat-dan-Ketentuan-Program-Gratis-Ongkir-XTRA" target="_blank" rel="noopener">Gratis Ongkir XTRA</a>
+            <a href="https://www.pajak.go.id/marketplace" target="_blank" rel="noopener">DJP — PPh marketplace</a>
+            <p>Preset program dan kategori adalah alat bantu estimasi. Selalu cocokkan dengan Seller Center.</p>
           </div>
-          <p class="source-warning">Rate kategori Gratis Ongkir dan beberapa program memakai preset referensi 2026 dan tetap harus diverifikasi di Seller Center.</p>
-        </section>
+        </details>
       </aside>
     </section>
   </main>
 
-  <footer class="wrap footer calc-footer">
+  <footer class="container footer">
     <div class="brand footer-brand"><img src="./assets/logo.png" alt=""><span>Take a peek.</span></div>
     <span>Fee Intelligence • Estimasi, bukan laporan resmi Shopee atau nasihat pajak.</span>
   </footer>

@@ -1,27 +1,29 @@
-# Take a peek. — Fee Intelligence Edition
+# Take a peek. — Modern Calculator UI
 
-Static web siap GitHub / Cloudflare.
+Versi redesign kalkulator marketplace yang fokus pada usability dan hierarchy.
 
 ## Halaman
-- `index.html` — landing page + walkthrough
-- `calculator.html` — Shopee Fee Intelligence
+- `index.html` — landing page Take a peek.
+- `calculator.html` — kalkulator Shopee Fee Intelligence versi modern
 
-## Fitur kalkulator
-- Mode Hitung Laba / Cari Harga Target
-- Mode Ringkas / Lengkap
-- Tipe penjual Non-Star / Star / Mall
-- Preset kategori 2026 + override manual
-- Biaya admin, proses Rp1.250, Mall payment 1,8%
-- Gratis Ongkir XTRA cap-aware
-- Promo XTRA 4,5% cap Rp60.000
-- Pre-order 3%
-- PPh 22 marketplace 0,5% opsional
-- SPayLater XTRA referensi 2026
-- Affiliate, iklan, Live/Video, asuransi dan biaya tetap manual
-- BEP, target margin, net margin, dana masuk
-- Unit economics, ROAS impas, simulasi ±10%
-- Simpan skenario di browser
-- Copy ringkasan / prompt AI
-- Print
+## Perbaikan UI/UX
+- CSS kalkulator berdiri sendiri agar tidak bentrok dengan landing page
+- 2-column workspace: input di kiri, summary sticky di kanan
+- Ringkas / Lengkap untuk progressive disclosure
+- Hitung Laba / Cari Harga Target
+- Result-first hierarchy: laba, margin, dana masuk, BEP, target
+- Fee wajib dan program opsional dipisahkan jelas
+- Unit economics donut
+- Simulasi harga ±10%
+- Skenario tersimpan di browser
+- Mobile responsive
+- Print dan copy summary
 
-Preset adalah estimasi dan harus diverifikasi dengan Seller Center.
+## Jalankan lokal
+```bash
+python -m http.server 8000
+```
+Buka `http://localhost:8000/calculator.html`
+
+## Deploy
+Replace isi repository GitHub dengan isi folder/ZIP ini lalu commit ke branch production Cloudflare.
