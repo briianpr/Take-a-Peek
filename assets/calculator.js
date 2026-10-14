@@ -212,6 +212,7 @@
     setText("econHpp",idr(f.hpp));
     setText("econFees",idr(f.fees+f.voucher+f.packing+f.logistics+f.otherFixed));
     setText("econProfit",signedIdr(f.profit));
+    setText("marginMetric",percent(f.margin)+" margin bersih");
     const roas=f.breakEvenRoas?f.breakEvenRoas.toFixed(2).replace('.',',')+'×':'—';
     setText("breakEvenRoas",roas);setText("sideRoas",roas);setText("effectiveCut",percent(f.effectiveCut));
 
@@ -292,3 +293,10 @@
   setCalcMode("profit");
   renderSaved();
 })();
+
+// Defensive reset: older overflowing builds may leave a retained horizontal scroll offset.
+window.addEventListener('load', () => {
+  window.scrollTo({left:0, top:window.scrollY, behavior:'instant'});
+  document.documentElement.scrollLeft = 0;
+  document.body.scrollLeft = 0;
+});

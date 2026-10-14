@@ -1,11 +1,12 @@
-# Take a peek. — Fullscreen Fee Intelligence
+# Take a peek. — Responsive Logo Refined
 
-Perubahan versi ini:
-- fullscreen dashboard (tanpa frame/tablet bezel)
-- tidak ada horizontal cropping pada desktop
-- result rail sticky di desktop, stacked di tablet/mobile
-- isi kalkulator tetap sama: fee wajib, program opsional, biaya bisnis, unit economics, BEP, harga target, simulasi, copy prompt/ringkasan
-- UI referensi hanya dipakai sebagai inspirasi struktur dan hierarchy, bukan disalin plek
-- brand identity TAP tetap dipertahankan
+Pembaruan:
+- logo TAP dari lampiran pengguna dipakai sebagai brand mark utama
+- sidebar logo kini terlihat jelas pada tile gelap
+- header memakai logo, bukan avatar huruf
+- hero memakai compact logo lockup
+- spacing/card hierarchy dirapikan
+- kalkulator dan semua logic biaya tetap sama
+- responsive desktop, tablet, dan mobile tetap dipertahankan
 
-Deploy: upload seluruh isi folder ke root repository GitHub / Cloudflare.
+Deploy: replace seluruh isi repository GitHub/Cloudflare dengan isi folder ini.
