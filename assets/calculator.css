@@ -109,3 +109,152 @@ select{width:100%;color:#1a1c22;font-weight:600}
 @media (max-width:980px){.app-frame{grid-template-columns:1fr;padding:12px}.app-sidebar{display:none}.app-surface{padding:18px}.content-grid{grid-template-columns:1fr}.right-column{position:static}.stats-card{position:static}.topbar{grid-template-columns:1fr}.search-box,.account-pill{width:100%;justify-self:stretch}.hero-banner h1{font-size:38px}.donut-section{grid-template-columns:1fr}.donut{margin:0 auto}.field-grid,.price-guidance,.summary-actions,.economics-grid,.quick-summary{grid-template-columns:1fr 1fr}.program-controls{grid-template-columns:1fr 108px}}
 @media (max-width:720px){.app-frame{width:calc(100% - 16px);margin:8px auto;min-height:auto}.app-surface{padding:14px;border-radius:20px}.topbar{gap:14px}.welcome-block strong{font-size:18px}.welcome-block p{font-size:12px}.hero-banner,.card-panel,.stats-card,.result-card,.economics-card,.source-card,.metric-card{border-radius:20px}.hero-banner{padding:18px}.hero-banner h1{font-size:32px}.overview-grid,.field-grid,.content-grid,.scenario-grid,.price-guidance,.summary-actions,.economics-grid,.quick-summary,.seller-options{grid-template-columns:1fr}.span-2{grid-column:auto}.fee-item,.program-row,.breakdown-row{grid-template-columns:1fr}.program-controls,.program-controls.single{grid-template-columns:1fr}.donut{width:150px;height:150px}.donut>div{width:104px;height:104px}.profit-card strong{font-size:34px}}
 @media print{body{background:#fff}.page-bg,.app-sidebar,.topbar,.hero-banner,.overview-grid,.summary-actions,.source-card,.btn-main,#saveScenario,.saved-block,.advanced-section,.btn-lite,#printBtn{display:none!important}.app-frame{width:100%;margin:0;padding:0;box-shadow:none;background:#fff;display:block}.app-surface{background:#fff;padding:0}.content-grid{display:block}.card-panel{display:none}.stats-card,.result-card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}}
+
+/* =========================================================
+   Fullscreen refinement — TAP dashboard
+   Reference influences layout rhythm only; content stays TAP.
+   ========================================================= */
+html,body{width:100%;min-height:100%;overflow-x:hidden}
+body{background:#f3f6fa}
+.page-bg{display:none}
+
+.app-frame{
+  width:100%;
+  min-height:100vh;
+  margin:0;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
+  display:grid;
+  grid-template-columns:76px minmax(0,1fr);
+  gap:0;
+  background:#252427;
+}
+
+.app-sidebar{
+  position:sticky;
+  top:0;
+  height:100vh;
+  border-radius:0;
+  padding:18px 12px;
+  z-index:20;
+}
+
+.app-surface{
+  min-width:0;
+  width:100%;
+  border-radius:0;
+  overflow:visible;
+  padding:22px 28px 42px;
+  background:
+    radial-gradient(900px 420px at 65% -120px,rgba(255,109,41,.055),transparent 65%),
+    #f6f8fb;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:15;
+  margin:-22px -28px 0;
+  padding:18px 28px;
+  background:rgba(246,248,251,.92);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(225,229,235,.86);
+}
+
+.hero-banner{margin-top:22px}
+
+/* Prevent any child/grid item from forcing horizontal overflow. */
+.app-surface,.content-grid,.left-column,.right-column,.card-panel,.stats-card,.result-card,.economics-card,.source-card,.field,.fee-item,.program-row,.program-main,.program-controls{min-width:0}
+
+.content-grid{
+  grid-template-columns:minmax(0,1fr) minmax(340px,380px);
+  gap:18px;
+}
+
+.right-column{
+  width:100%;
+  max-width:380px;
+  justify-self:stretch;
+}
+
+.stats-card,.result-card,.economics-card,.source-card{width:100%;overflow:hidden}
+
+/* Balance the top overview so it feels like a real working dashboard. */
+.overview-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric-card strong{font-size:clamp(26px,2.35vw,34px);white-space:nowrap}
+
+/* Keep fee/program rows usable when width becomes tighter. */
+.fee-item{grid-template-columns:minmax(0,1fr) 116px minmax(88px,auto)}
+.program-row{grid-template-columns:minmax(0,1fr) minmax(170px,260px) minmax(82px,auto)}
+.program-controls{grid-template-columns:minmax(120px,1fr) 106px}
+.program-controls.single{grid-template-columns:106px}
+
+/* Improve visual hierarchy without changing the calculator's content. */
+.card-panel,.stats-card,.result-card,.economics-card,.source-card{
+  border-color:#e5e9ef;
+  box-shadow:0 8px 24px rgba(35,43,58,.055);
+}
+.hero-banner{
+  border-color:#e6e8ed;
+  box-shadow:0 8px 26px rgba(35,43,58,.055);
+}
+.metric-card{box-shadow:0 6px 18px rgba(35,43,58,.045)}
+
+/* The result panel remains visible, but won't overlap or clip. */
+.right-column{position:sticky;top:90px;align-self:start}
+.stats-card{position:static}
+
+/* Smooth compact mode: preserve important controls and hide advanced only. */
+.simple-ui .advanced-section{display:none!important}
+
+/* 1280 and below: slightly slimmer result rail. */
+@media (max-width:1280px){
+  .app-frame{grid-template-columns:68px minmax(0,1fr)}
+  .app-surface{padding:20px 22px 36px}
+  .topbar{margin:-20px -22px 0;padding:16px 22px}
+  .content-grid{grid-template-columns:minmax(0,1fr) minmax(320px,350px);gap:14px}
+  .right-column{max-width:350px}
+  .hero-banner{grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)}
+  .overview-grid{gap:12px}
+  .metric-card{padding:16px}
+  .metric-card strong{font-size:28px}
+  .donut-section{grid-template-columns:145px minmax(0,1fr)}
+  .donut{width:145px;height:145px}.donut>div{width:100px;height:100px}
+  .profit-card strong{font-size:34px}
+}
+
+/* Tablet: stop using the sticky right rail and stack cleanly. */
+@media (max-width:1080px){
+  .content-grid{grid-template-columns:1fr}
+  .right-column{position:static;max-width:none;display:grid;grid-template-columns:1fr 1fr;align-items:start}
+  .stats-card{grid-row:span 2}
+  .source-card{grid-column:1/-1}
+  .hero-banner{grid-template-columns:1fr}
+  .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* Mobile: full screen without the left rail, no cropped content. */
+@media (max-width:760px){
+  .app-frame{display:block;min-height:100vh;background:#f6f8fb}
+  .app-sidebar{display:none}
+  .app-surface{padding:14px 14px 28px}
+  .topbar{position:static;margin:-14px -14px 0;padding:14px;border-radius:0;grid-template-columns:1fr}
+  .search-box{display:none}
+  .account-pill{justify-self:start;height:42px}
+  .hero-banner{margin-top:14px;padding:18px}
+  .hero-banner h1{font-size:34px}
+  .hero-actions{grid-template-columns:1fr}
+  .overview-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .metric-card{padding:14px}.metric-card strong{font-size:24px}
+  .content-grid{display:block}
+  .left-column,.right-column{display:grid;gap:14px}
+  .right-column{margin-top:14px}
+  .field-grid,.seller-options,.scenario-grid,.price-guidance,.summary-actions,.economics-grid,.quick-summary{grid-template-columns:1fr}
+  .span-2{grid-column:auto}
+  .fee-item,.program-row{grid-template-columns:1fr;gap:10px}
+  .program-controls,.program-controls.single{grid-template-columns:1fr}
+  .fee-item strong,.program-row strong{text-align:left}
+  .donut-section{grid-template-columns:1fr}.donut{margin:auto}
+}
